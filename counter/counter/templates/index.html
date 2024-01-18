@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+    <meta charsset="UTF-8">
+    <title>visit counter</title>
+</head>
+<body>
+    <h1>number of times you've visited this page: {{ visit_count }}</h1>
+    <h2>counter value: {{ counter }}</h2>
+    <h3>actual page visits: {{ actual_visits }}</h3>
+    <form action="/increment_by_two" method="get">
+        <button type="submit">+2</button>
+    </form>
+    <form action="/reset" method="get">
+        <button type="submit">reset counter</button>
+    </form>
+    <form action="/increment" method="post">
+        <input type="number" name="increment_value" min="1" value="1">
+        <button type="submit">increment counter</button>
+    </form>
+    <a href="/destroy_session">destroy sesssion (clear visits)</a>
+</body>
+</html>
+
+
+#forgot  comments dont judge
