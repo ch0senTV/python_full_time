@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ dojo['name'] }}</title>
+</head>
+<body>
+    <h1>{{ dojo['name'] }}</h1>
+    <h2>Ninjas in this Dojo:</h2>
+    <ul>
+        {% for ninja in ninjas %}
+            <li>{{ ninja['name'] }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('dojos') }}">Home</a>
+</body>
+</html>
+
+

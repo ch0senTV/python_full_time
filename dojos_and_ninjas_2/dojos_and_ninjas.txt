@@ -1,0 +1,134 @@
+---Query: Create 3 new dojos---
+
+CREATE TABLE dojo2 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+CREATE TABLE dojo3 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+CREATE TABLE dojo4 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+---Query: Delete the 3 dojos you just created---
+
+DELETE FROM dojo2;
+DELETE FROM dojo3;
+DELETE FROM dojo4;
+
+(decided to take a different approach)
+
+DROP TABLE dojo2, dojo3, dojo4;
+
+---Query: Create 3 more dojos---
+
+CREATE TABLE dojo2 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+CREATE TABLE dojo3 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+CREATE TABLE dojo4 (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    names VARCHAR(60),
+    created_at DATETIME,
+    updated_at DATETIME
+);
+
+---Query: Create 3 ninjas that belong to the first dojo---
+
+INSERT INTO dojo2 (names, id)
+VALUES
+('John', 1),
+('Billy', 2),
+('Stevie', 3);
+
+---Query: Create 3 ninjas that belong to the second dojo---
+
+INSERT INTO dojo3 (names, id)
+VALUES
+('John', 1),
+('Billy', 2),
+('Stevie', 3);
+
+---Query: Create 3 ninjas that belong to the third dojo---
+
+INSERT INTO dojo4 (names, id)
+VALUES
+('John', 1),
+('Billy', 2),
+('Stevie', 3);
+
+---Query: Retrieve all the ninjas from the first dojo---
+
+SELECT *
+FROM dojo2
+WHERE id = 1;
+
+SELECT *
+FROM dojo2
+WHERE id = 2;
+
+SELECT *
+FROM dojo2
+WHERE id = 3;
+
+---Query: Retrieve all the ninjas from the last dojo---
+
+SELECT *
+FROM dojo4
+WHERE id = 1;
+
+SELECT *
+FROM dojo4
+WHERE id = 2;
+
+SELECT *
+FROM dojo4
+WHERE id = 3;
+
+---Query: Retrieve the last ninja dojo---
+
+SELECT *
+FROM dojo3
+WHERE id = 1;
+
+SELECT *
+FROM dojo3
+WHERE id = 2;
+
+SELECT *
+FROM dojo3
+WHERE id = 3;
+
+---Query: Use a JOIN to retrieve the ninja with id 6 as well as the data from its dojo. Be sure to do this in one query using a join statement---
+
+SELECT ninjas.*, dojo2.*
+FROM ninjas
+JOIN dojo2 ON ninjas.dojo_id = dojo2.id
+WHERE ninjas.id = 6;
+
+---Query: Use a JOIN to retrieve all the ninjas as well as that ninja's dojo, note, you will see repeated data on dojos as a dojo can have many ninjas---
+
+SELECT ninjas.*, dojo2.*
+FROM ninjas
+JOIN dojo2 ON ninjas.dojo_id = dojo2.id;

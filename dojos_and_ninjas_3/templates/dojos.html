@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dojos</title>
+</head>
+<body>
+    <h1>Dojos</h1>
+    <ul>
+        {% for dojo in dojos %}
+            <li><a href="{{ url_for('dojo_show', dojo_id=dojo['id']) }}">{{ dojo['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
